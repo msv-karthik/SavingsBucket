@@ -12,18 +12,37 @@ import transactionRoutes from './routes/transactions.js';
 
 
 
+// const allowedOrigins = [
+//     "http://localhost:5173",
+//     process.env.FRONTEND_URL
+// ].filter(Boolean);
+
+// app.use(cors({
+//     origin: allowedOrigins,
+//     credentials: true,
+// }));
+// app.options("*", cors());
+
 const allowedOrigins = [
-    "http://localhost:5173",
-    process.env.FRONTEND_URL
-].filter(Boolean);
+  "http://localhost:5173",
+  "https://savings-bucket.vercel.app"
+];
 
 app.use(cors({
-    origin: allowedOrigins,
-    credentials: true,
+  origin: function (origin, callback) {
+    
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
 }));
+
 app.options("*", cors());
-
-
 
 
 // app.use(cors());
