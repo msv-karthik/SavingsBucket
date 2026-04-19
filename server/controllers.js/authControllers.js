@@ -1,6 +1,8 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import db from "../db.js"; 
+import dotenv from "dotenv";
+dotenv.config();
 
 export const signup = async (req, res) => {
   const { name, email, password } = req.body;
@@ -101,7 +103,7 @@ export const login = async (req, res) => {
 
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Something went wrong" });
+    res.status(500).json({ error: err.message });
   }
 };
 
