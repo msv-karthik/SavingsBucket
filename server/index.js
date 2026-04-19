@@ -35,7 +35,7 @@ db.query("SELECT 1")
   .then(() => console.log("DB connected"))
   .catch(err => console.error("DB connection error:", err));
 
-
+console.log("DATABASE_URL =", process.env.DATABASE_URL);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/buckets", bucketsRoutes);
