@@ -1,0 +1,13 @@
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  min-width: 220px;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
