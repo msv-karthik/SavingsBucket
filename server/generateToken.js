@@ -3,7 +3,7 @@ import dotenv  from "dotenv";
 dotenv.config();
 
 const token = jwt.sign(
-  { userId: user.id },
+  { userId },
   process.env.JWT_SECRET,
   { expiresIn: "1h" }
 );
